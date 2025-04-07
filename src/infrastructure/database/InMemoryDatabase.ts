@@ -8,8 +8,4 @@ export class InMemoryDatabase implements TransactionRepository {
   save(transaction: Transaction): void {
     this.transactions.push(transaction);
   }
-
-  delete(): void {
-    this.transactions = [];
-  }
 }

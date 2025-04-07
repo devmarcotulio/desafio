@@ -1,18 +1,21 @@
 {
   "name": "desafio-itau",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "tsx src/infrastructure/shared/http/server.ts",
     "dev": "tsx watch src/infrastructure/shared/http/server.ts",
     "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "celebrate": "^15.0.3",
     "express": "^5.1.0",
-    "express-status-monitor": "^1.3.4"
+    "express-status-monitor": "^1.3.4",
+    "joi": "^17.13.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.1",
