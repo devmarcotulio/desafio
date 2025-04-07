@@ -12,4 +12,8 @@ export class InMemoryDatabase implements TransactionRepository {
   delete(): void {
     this.transactions = [];
   }
+
+  getAll(): Transaction[] {
+    return this.transactions;
+  }
 }

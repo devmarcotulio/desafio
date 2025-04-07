@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createTransactionController, deleteTransactionsController } from '../../../../application/factories/TransactionFactory';
+import { createTransactionController, deleteTransactionsController, statisticsTransactionController } from '../../../../application/factories/TransactionFactory';
 import { Joi, Segments, celebrate } from "celebrate";
 
 const transactionRoutes = Router(); 
@@ -26,6 +26,10 @@ transactionRoutes.post('/transacao',
 
 transactionRoutes.delete('/transacao', (req, res) => {
   deleteTransactionsController.handler(req, res);
+});
+
+transactionRoutes.get('/estatistica', (req, res) => {
+  statisticsTransactionController.handler(req, res);
 });
 
 
