@@ -3,6 +3,6 @@ import { transactionRoutes } from "./routes/transactionRoutes";
 
 const routes = Router();
 
-routes.use('/', transactionRoutes);
+routes.use(transactionRoutes);
 
 export { routes };
