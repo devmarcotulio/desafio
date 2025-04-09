@@ -4,10 +4,10 @@ import { TransactionRepository } from "../repositories/TransactionRepository";
 export class StatisticsTransactionUseCase {
   constructor(private transactionRepository: TransactionRepository) {}
 
-  async execute() {
+  async execute(time: string) {
     const transactions = await this.transactionRepository.getAll();
     const recentTransactions = transactions.filter(({ dataHora }) => {
-      return new Date().getTime() - new Date(dataHora).getTime() <= 60 * 1000
+      return new Date().getTime() - new Date(dataHora).getTime() <= parseInt(time) * 1000
     });
     if (recentTransactions.length === 0) {
       return {

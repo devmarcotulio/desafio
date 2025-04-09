@@ -6,7 +6,8 @@ export class StatisticsTransactionController {
 
   async handler(req: Request, res: Response) {
     try {
-      const statistics = await this.statisticsTransactionUseCase.execute();
+      const time = req.query.time as any || '60';
+      const statistics = await this.statisticsTransactionUseCase.execute(time);
       res.status(200).json(statistics);
     } catch (err) {
       if (err instanceof Error) return res.status(400).json({ message: err.message });
