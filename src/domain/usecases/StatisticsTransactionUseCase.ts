@@ -1,3 +1,4 @@
+import logger from "../../utils/logger";
 import { Transaction } from "../entities/Transaction";
 import { TransactionRepository } from "../repositories/TransactionRepository";
 
@@ -6,10 +7,12 @@ export class StatisticsTransactionUseCase {
 
   async execute(time: string) {
     const transactions = await this.transactionRepository.getAll();
+    logger.info(`Total de transações: ${transactions.length}`);
     const recentTransactions = transactions.filter(({ dataHora }) => {
       return new Date().getTime() - new Date(dataHora).getTime() <= parseInt(time) * 1000
     });
     if (recentTransactions.length === 0) {
+      logger.warn(`Nenhuma transação encontrada nos últimos ${time} segundos`);
       return {
         count: 0,
         sum: 0,
