@@ -20,7 +20,12 @@ Projeto de uma API REST que recebe transações financeiras e retorna estatísti
 ```
 
 ### `DELETE /transacoes`
-- Deleta todas as transações
+- Deleta todas as transações.
 
 ### `GET /estatisticas`
 - Retorna as estatísticas dos úlitmos 60 segundos, caso não seja passado a query time na URL da requisição.
+
+## Extras
+- Foi adicionado logs na aplicação, mostrando o que está acontecendo enquanto ela trabalha.
+- Um endpoint de observabilidade, para mostrar a saúde da aplicação. **/saude**.
+- O endpoint **/estatisticas** também mostra quanto tempo é necessário para o seu cálculo, trazendo consigo dados sobre performance.
